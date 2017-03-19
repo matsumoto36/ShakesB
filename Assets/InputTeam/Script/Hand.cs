@@ -106,8 +106,8 @@ public class Hand : MonoBehaviour {
         return dobj;
     }
 
-    void SetDrinkToHolder (Drink drink, Transform parent) {
-        drink.transform.parent = parent;
+    void SetDrinkToHolder (Drink d, Transform parent) {
+        d.transform.parent = parent;
         drink = null;
     }
 }
