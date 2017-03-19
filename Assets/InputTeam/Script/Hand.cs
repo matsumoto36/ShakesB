@@ -90,12 +90,14 @@ public class Hand : MonoBehaviour {
         }
         else if (c.gameObject.name == "Holder1") {
             // 右のホルダー
-            player.drink1 = drink.GetComponent<Drink>();
+            player.Drink1 = drink.GetComponent<Drink>();
+            drink.transform.parent = c.gameObject.transform;
             drink = null;
         }
         else if (c.gameObject.name == "Holder2") {
             // 左のホルダー
-            player.drink2 = drink.GetComponent<Drink>();
+            player.Drink2 = drink.GetComponent<Drink>();
+            drink.transform.parent = c.gameObject.transform;
             drink = null;
         }
 	}
