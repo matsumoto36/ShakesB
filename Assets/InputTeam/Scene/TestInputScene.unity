@@ -287,6 +287,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b21fd1b47df1acb43840397183eb04d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Shakes: 0
+  isLeft: 0
+  acc: {x: 0, y: 0, z: 0}
 --- !u!65 &822585838
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -310,6 +313,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b21fd1b47df1acb43840397183eb04d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Shakes: 0
+  isLeft: 1
+  acc: {x: 0, y: 0, z: 0}
 --- !u!65 &822585840
 BoxCollider:
   m_ObjectHideFlags: 0
