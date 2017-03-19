@@ -82,9 +82,11 @@ public class Hand : MonoBehaviour {
 		Debug.Log("touch");
         if (c.gameObject.name == "Cube") {
             // UDH
-            drink = Instantiate(drinkPref, transform, true);
-            var d = drink.GetComponent<Drink>();
-            d.player = player;
+            if (drink == null) {
+                drink = Instantiate(drinkPref, transform, true);
+                var d = drink.GetComponent<Drink>();
+                d.player = player;
+            }
         }
         else if (c.gameObject.name == "Holder1") {
             // 右のホルダー

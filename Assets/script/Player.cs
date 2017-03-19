@@ -10,11 +10,26 @@ public class Player : MonoBehaviour {
 
 	public GameObject drinkPref;
 	public float velocity = 0;
-	public Drink drink1;
-	public Drink drink2;
+    private Drink drink1;
+    private Drink drink2;
 
-	// Use this for initialization
-	void Start () {
+    public Drink Drink1 {
+        get { return drink1; }
+        set {
+            Destroy(drink1);
+            drink1 = value;
+        }
+    }
+    public Drink Drink2 {
+        get { return drink2; }
+        set {
+            Destroy(drink2);
+            drink2 = value;
+        }
+    }
+
+    // Use this for initialization
+    void Start () {
 		
 	}
 	
@@ -23,8 +38,8 @@ public class Player : MonoBehaviour {
 		flightLevel += (velocity - 0.98f)* Time.deltaTime;
 		sky.FlightLevel = flightLevel;
 		var energy = 0.0f;
-		if (drink1 != null) energy += drink1.jet(100*Time.deltaTime);
-		if (drink2 != null) energy += drink2.jet(100*Time.deltaTime);
+		if (Drink1 != null) energy += Drink1.jet(100*Time.deltaTime);
+		if (Drink2 != null) energy += Drink2.jet(100*Time.deltaTime);
 		velocity = energy;
 		if (flightLevel<= 0) {
 			flightLevel = 0;
