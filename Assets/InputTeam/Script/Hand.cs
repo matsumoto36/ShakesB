@@ -42,10 +42,11 @@ public class Hand : MonoBehaviour {
         {
             acc = OVRInput.GetLocalControllerAcceleration(OVRInput.Controller.RTouch);
         }
-
-        float sum = Mathf.Abs(acc.x) + Mathf.Abs(acc.y) + Mathf.Abs(acc.z);
-        if (sum > 1.0f) Shakes += sum;
-        Shakes = Mathf.Max(100000, Shakes);
+        if (drink) {
+            float sum = Mathf.Abs(acc.x) + Mathf.Abs(acc.y) + Mathf.Abs(acc.z);
+            if (sum > 1.0f) Shakes += sum;
+            Shakes = Mathf.Max(100000, Shakes);
+        }
     }
 
     /// <summary>
@@ -105,6 +106,7 @@ public class Hand : MonoBehaviour {
     GameObject CreateDrink () {
         var dobj = Instantiate(drinkPref, transform, true);
         dobj.transform.localPosition = new Vector3(0, 0.07f, -0.15f);
+        dobj.transform.localRotation = Quaternion.Euler(new Vector3(0, 0, 0));
         var d = dobj.GetComponent<Drink>();
         d.player = player;
         return dobj;
@@ -112,6 +114,9 @@ public class Hand : MonoBehaviour {
 
     void SetDrinkToHolder (Drink d, Transform parent) {
         drink.transform.parent = parent;
+        Debug.Log("Shakes " + Shakes);
+        d.energy = Shakes;
         drink = null;
+        Shakes = 0;
     }
 }

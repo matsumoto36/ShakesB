@@ -16,9 +16,9 @@ public class Drink : MonoBehaviour {
 	}
 
 	public float jet(float _energy){
-		if (energy - _energy >= 0) {
+        if (energy - _energy >= 0) {
 			energy -= _energy;
-			return _energy;
+			return energy*0.00001f;
 		} else {
 			
 			return 0;
