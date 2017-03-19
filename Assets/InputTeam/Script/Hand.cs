@@ -34,7 +34,6 @@ public class Hand : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
         if (isLeft)
         {
             acc = OVRInput.GetLocalControllerAcceleration(OVRInput.Controller.LTouch);
@@ -83,7 +82,7 @@ public class Hand : MonoBehaviour {
 		Debug.Log("touch");
         if (c.gameObject.name == "Cube") {
             // UDH
-            drink = Instantiate(drinkPref, transform.parent);
+            drink = Instantiate(drinkPref, transform, true);
             var d = drink.GetComponent<Drink>();
             d.player = player;
         }
