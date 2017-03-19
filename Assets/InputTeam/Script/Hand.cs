@@ -84,6 +84,8 @@ public class Hand : MonoBehaviour {
         if (c.gameObject.name == "Cube") {
             // UDH
             drink = Instantiate(drinkPref, transform.parent);
+            var d = drink.GetComponent<Drink>();
+            d.player = player;
         }
         else if (c.gameObject.name == "Holder1") {
             // 右のホルダー
