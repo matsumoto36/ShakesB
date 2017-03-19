@@ -7,11 +7,18 @@ public class Hand : MonoBehaviour {
     [SerializeField]
     float Shakes;
 
+    public bool isShake
+    {
+        get; set;
+    }
+
     [SerializeField]
     bool isLeft;
 
     [SerializeField]
     Vector3 acc;
+
+    OVRHapticsClip pulseClip;
 
     // Use this for initialization
     void Start () {
@@ -35,6 +42,35 @@ public class Hand : MonoBehaviour {
         Shakes = Mathf.Max(100000, Shakes);
     }
 
+    /// <summary>
+    /// 振動の強度を変更
+    /// </summary>
+    /// <param name="pulse"></param>
+    public void SetPulse(byte pulse)
+    {
+        byte[] bff = new byte[8];
+        for (int i = 0; i < bff.Length; i++)
+        {
+            bff[i] = pulse;
+        }
+
+        pulseClip = new OVRHapticsClip(bff, bff.Length);
+    }
+
+    /// <summary>
+    /// 振動
+    /// </summary>
+    public void Pulse()
+    {
+        if (isLeft)
+        {
+            OVRHaptics.LeftChannel.Mix(pulseClip);
+        }
+        else
+        {
+            OVRHaptics.RightChannel.Mix(pulseClip);
+        }
+    }
 
 	void OnTriggerEnter(Collider c) {
 		Debug.Log("touch");
