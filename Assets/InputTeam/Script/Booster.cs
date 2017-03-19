@@ -11,9 +11,10 @@ public class Booster : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		isPlay = true;
-		_isPlay = true;
+		isPlay = false;
+		_isPlay = false;
 		p = GetComponentInChildren<ParticleSystem>();
+        p.Stop();
 	}
 	
 	// Update is called once per frame

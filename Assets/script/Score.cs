@@ -17,8 +17,8 @@ public class Score : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		float fl = sky.FlightLevel;
-		float time = Time.time + 900;
-		flyscore.text = string.Format ("{0:n}",time);
+		//float time = Time.time + 900;
+		flyscore.text = string.Format ("{0:n}",fl);
 
 	}
 }
