@@ -11,11 +11,7 @@ public class Hand : MonoBehaviour {
     bool isLeft;
 
     [SerializeField]
-    float sx;
-    [SerializeField]
-    float sy;
-    [SerializeField]
-    float sz;
+    Vector3 acc;
 
     // Use this for initialization
     void Start () {
@@ -25,8 +21,18 @@ public class Hand : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        //OVRDevice.GetAcceleration(ref sx, ref sy, ref sz);
+        if (isLeft)
+        {
+            acc = OVRInput.GetLocalControllerAcceleration(OVRInput.Controller.LTouch);
+        }
+        else
+        {
+            acc = OVRInput.GetLocalControllerAcceleration(OVRInput.Controller.RTouch);
+        }
 
+        float sum = Mathf.Abs(acc.x) + Mathf.Abs(acc.y) + Mathf.Abs(acc.z);
+        if (sum > 1.0f) Shakes += sum;
+        Shakes = Mathf.Max(100000, Shakes);
     }
 
 
