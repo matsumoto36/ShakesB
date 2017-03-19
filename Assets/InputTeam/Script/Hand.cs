@@ -88,13 +88,17 @@ public class Hand : MonoBehaviour {
         }
         else if (c.gameObject.name == "Holder1") {
             // 右のホルダー
-            player.Drink1 = drink.GetComponent<Drink>();
-            SetDrinkToHolder(player.Drink1, c.gameObject.transform);
+            if (drink != null) {
+                player.Drink1 = drink.GetComponent<Drink>();
+                SetDrinkToHolder(player.Drink1, c.gameObject.transform);
+            }
         }
         else if (c.gameObject.name == "Holder2") {
             // 左のホルダー
-            player.Drink2 = drink.GetComponent<Drink>();
-            SetDrinkToHolder(player.Drink2, c.gameObject.transform);
+            if (drink != null) {
+                player.Drink2 = drink.GetComponent<Drink>();
+                SetDrinkToHolder(player.Drink2, c.gameObject.transform);
+            }
         }
 	}
     
@@ -107,7 +111,7 @@ public class Hand : MonoBehaviour {
     }
 
     void SetDrinkToHolder (Drink d, Transform parent) {
-        d.transform.parent = parent;
+        drink.transform.parent = parent;
         drink = null;
     }
 }
