@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
+  m_IndirectSpecularColor: {r: 0.4616946, g: 0.51241565, b: 0.58993244, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -127,7 +127,7 @@ Transform:
   m_GameObject: {fileID: 153061961}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 100, z: 1}
   m_Children:
   - {fileID: 1184687970}
   m_Father: {fileID: 0}
@@ -449,8 +449,6 @@ MonoBehaviour:
   sky: {fileID: 153061962}
   drinkPref: {fileID: 1661319839591340, guid: fb7f1a548fad84019b2d925b0682df4d, type: 2}
   velocity: 0
-  drink1: {fileID: 0}
-  drink2: {fileID: 0}
 --- !u!1001 &971084253
 Prefab:
   m_ObjectHideFlags: 0
