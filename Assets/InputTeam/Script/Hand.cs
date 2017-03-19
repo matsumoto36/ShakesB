@@ -83,22 +83,31 @@ public class Hand : MonoBehaviour {
         if (c.gameObject.name == "Cube") {
             // UDH
             if (drink == null) {
-                drink = Instantiate(drinkPref, transform, true);
-                var d = drink.GetComponent<Drink>();
-                d.player = player;
+                drink = CreateDrink();
             }
         }
         else if (c.gameObject.name == "Holder1") {
             // 右のホルダー
             player.Drink1 = drink.GetComponent<Drink>();
-            drink.transform.parent = c.gameObject.transform;
-            drink = null;
+            SetDrinkToHolder(player.Drink1, c.gameObject.transform);
         }
         else if (c.gameObject.name == "Holder2") {
             // 左のホルダー
             player.Drink2 = drink.GetComponent<Drink>();
-            drink.transform.parent = c.gameObject.transform;
-            drink = null;
+            SetDrinkToHolder(player.Drink2, c.gameObject.transform);
         }
 	}
+    
+    GameObject CreateDrink () {
+        var dobj = Instantiate(drinkPref, transform, true);
+        dobj.transform.localPosition = new Vector3(0, 0.07f, -0.15f);
+        var d = dobj.GetComponent<Drink>();
+        d.player = player;
+        return dobj;
+    }
+
+    void SetDrinkToHolder (Drink drink, Transform parent) {
+        drink.transform.parent = parent;
+        drink = null;
+    }
 }

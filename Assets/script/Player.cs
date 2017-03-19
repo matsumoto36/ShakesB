@@ -16,14 +16,14 @@ public class Player : MonoBehaviour {
     public Drink Drink1 {
         get { return drink1; }
         set {
-            Destroy(drink1);
+            Destroy(drink1.gameObject);
             drink1 = value;
         }
     }
     public Drink Drink2 {
         get { return drink2; }
         set {
-            Destroy(drink2);
+            Destroy(drink2.gameObject);
             drink2 = value;
         }
     }
