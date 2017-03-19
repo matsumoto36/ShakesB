@@ -13,17 +13,12 @@ public class Drink : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
-	
-
 	}
 
 	public float jet(float _energy){
-		
 		if (energy - _energy >= 0) {
 			energy -= _energy;
 			return _energy;
-
 		} else {
 			
 			return 0;

@@ -13,6 +13,14 @@ public class Hand : MonoBehaviour {
     [SerializeField]
     Vector3 acc;
 
+    [SerializeField]
+    GameObject drinkPref;
+
+    GameObject drink;
+
+    [SerializeField]
+    Player player;
+
     // Use this for initialization
     void Start () {
 		
@@ -38,5 +46,19 @@ public class Hand : MonoBehaviour {
 
 	void OnTriggerEnter(Collider c) {
 		Debug.Log("touch");
+        if (c.gameObject.name == "Cube") {
+            // UDH
+            drink = Instantiate(drinkPref, transform.parent);
+        }
+        else if (c.gameObject.name == "Holder1") {
+            // 右のホルダー
+            player.drink1 = drink.GetComponent<Drink>();
+            drink = null;
+        }
+        else if (c.gameObject.name == "Holder2") {
+            // 左のホルダー
+            player.drink2 = drink.GetComponent<Drink>();
+            drink = null;
+        }
 	}
 }

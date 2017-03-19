@@ -7,10 +7,11 @@ public class Player : MonoBehaviour {
     float flightLevel;
 	[SerializeField]
 	Sky sky;
+
+	public GameObject drinkPref;
 	public float velocity = 0;
 	public Drink drink1;
 	public Drink drink2;
-
 
 	// Use this for initialization
 	void Start () {
@@ -21,11 +22,10 @@ public class Player : MonoBehaviour {
 	void Update () {
 		flightLevel += (velocity - 0.98f)* Time.deltaTime;
 		sky.FlightLevel = flightLevel;
-		float energy = drink1.jet(100*Time.deltaTime) + drink2.jet(100*Time.deltaTime);
+		var energy = 0.0f;
+		if (drink1 != null) energy += drink1.jet(100*Time.deltaTime);
+		if (drink2 != null) energy += drink2.jet(100*Time.deltaTime);
 		velocity = energy;
-
-
-
 		if (flightLevel<= 0) {
 			flightLevel = 0;
 		}
